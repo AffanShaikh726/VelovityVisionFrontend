@@ -1,13 +1,87 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(22, 20, 24);
+    color: #eee;
+    user-select: none;
+    background-image: url("./images/bgMobile.jpg"); /*  Set desktop background image */
+    background-size: cover; /* Ensure the image covers the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Set a different background image for mobile screens */
+@media (max-width: 768px) {
+    body {
+        background-image: url("./images/bgMobile.jpg"); /* Set mobile background image
+        background-size: cover; /* Ensure the image covers the entire screen */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+    }
+}
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the app takes the full height of the viewport */
+}
+.appBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Add spacing between cards */
+    padding: 20px;
+}
+
+.cards-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+    ); /* Responsive columns */
+    gap: 20px; /* Add spacing between cards */
+    width: 100%;
+    max-width: 1200px; /* Optional: Limit the container width */
+    /* padding-bottom: 3rem; */
+}
+
+.card {
+    box-sizing: border-box; /* Include padding and border in width/height */
+    max-width: 100%; /* Ensure cards take full width of their grid cell */
+}
+
+/* For mobile screens, stack cards vertically */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%; /* Full width for each card */
+        max-width: 100%; /* Ensure cards take full width */
+    }
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding-bottom: 3rem;
+}
+
+.show-more-btn,
+.show-less-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.show-more-btn:hover,
+.show-less-btn:hover {
+    background-color: #0056b3;
 }
